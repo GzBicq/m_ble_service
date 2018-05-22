@@ -117,7 +117,7 @@
 NRF_BLE_GATT_DEF(m_gatt);                                                       /**< GATT module instance. */
 BLE_ADVERTISING_DEF(m_advertising);                                             /**< Advertising module instance. */
 
-static  ble_midi_servicet_t     m_midi_service;
+static  ble_midi_service_t     m_midi_service;
 static  ble_bas_t               m_bas;
 
 
@@ -375,7 +375,7 @@ static void services_init(void)
     err_code = ble_bas_init(&m_bas, &bas_init);
     APP_ERROR_CHECK(err_code);
     
-    memset(&midi_init, 0, sizeof((write perm)));
+    memset(&midi_init, 0, sizeof(midi_init));
     midi_init.data_io_write_handler = data_io_write_handler;
  
     err_code = ble_midi_service_init(&m_midi_service, &midi_init);
